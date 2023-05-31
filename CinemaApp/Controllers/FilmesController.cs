@@ -46,6 +46,18 @@ namespace CinemaApp.Controllers
             return Ok(filmeDto);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult AtualizaFilme(int id, [FromBody] UpdateFilmeDTO filmeDto)
+        {
+            var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
+            if (filme == null) 
+                return NotFound();
+            _mapper.Map(filmeDto, filme);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+
         [HttpPatch("{id}")]
         public IActionResult AtualizaFilmeParcial(int id, JsonPatchDocument<UpdateFilmeDTO> patch)
         {

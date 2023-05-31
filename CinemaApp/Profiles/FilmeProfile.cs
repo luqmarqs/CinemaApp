@@ -9,7 +9,7 @@ namespace CinemaApp.Profiles
         {
             CreateMap<CreateFilmeDTO, Filme>();
             CreateMap<UpdateFilmeDTO, Filme>();
-            CreateMap<Filme, UpdateFilmeDto>();
+            CreateMap<Filme, UpdateFilmeDTO>();
             CreateMap<Filme, ReadFilmeDto>();
         }
     }
